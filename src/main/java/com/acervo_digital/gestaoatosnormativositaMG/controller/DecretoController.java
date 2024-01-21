@@ -65,4 +65,9 @@ public class DecretoController {
 	public String home() {
 		return "home/home";
 	}
+
+	@GetMapping("/administrativo")
+	public String login_page() {
+		return "administrativo/login_colaborador";
+	}
 }
