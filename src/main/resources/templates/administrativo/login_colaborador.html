@@ -1,35 +1,53 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gestão dos Atos Normativos</title>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Gestão dos Atos Normativos</title>
 	<link rel="stylesheet" href="login_colaborador.css">
-  </head>
-  <body>
-    <header>
-      <h1>Acesso do Colaborador</h1>
-      <h3>Prefeitura de Itamarandiba - MG</h3>
-      <img
-        id="brasao"
-        src="https://i.pinimg.com/originals/66/05/4c/66054c3c52c37031e4c5cfb09c279aaf.png"
-        alt="Brasão da Prefeitura"
-      />
-    </header>
-    <form>
-      <label for="setor">Setor:</label>
-      <select id="setor" name="setor">
-        <!-- Opções do select aqui -->
-      </select>
+</head>
 
-      <label for="usuario">Usuário:</label>
-      <input type="text" id="usuario" name="usuario" required />
+<body>
+	<header>
+		<h1>Acesso do Colaborador</h1>
+		<h3>Prefeitura de Itamarandiba - MG</h3>
+		<img id="brasao" src="https://i.pinimg.com/originals/66/05/4c/66054c3c52c37031e4c5cfb09c279aaf.png"
+			alt="Brasão da Prefeitura" />
+	</header>
+	<form>
+		<label for="setor">Secretaria:</label>
+		<select id="setor" name="setor">
 
-      <label for="senha">Senha:</label>
-      <input type="password" id="senha" name="senha" required />
+			<option>Administração</option>
+			<option>Agricultura, Pecuária, Abastecimento e Meio Ambiente</option>
+			<option>Cultura, Lazer, Esporte e Turimo</option>
+			<option>Defesa Civil</option>
+			<option>Desenvolvimento e Assistência Social</option>
+			<option>Desenvolvimento Econômico</option>
+			<option>Desenvolvimento Urbano e Rural</option>
+			<option>Educação</option>
+			<option>Finanças</option>
+			<option>Governo e Planejamento</option>
+			<option>Guarda Municipal</option>
+			<option>Procuradoria Municipal</option>
+			<option>Saúde</option>
 
-      <button type="submit">Login</button>
-    </form>
-    <footer>© 2024 Desenvolvido por Andhy Leal</footer>
-  </body>
+
+		</select>
+
+		<label for="usuario">Usuário:</label>
+		<input type="text" id="usuario" name="usuario" required />
+
+		<label for="matricula">Matrícula funcional:</label>
+		<input type="text" id="matricula" name="matricula" required />
+
+		<label for="senha">Senha:</label>
+		<input type="password" id="senha" name="senha" required />
+
+		<button type="submit">Login</button>
+	</form>
+	<footer>© 2024 Desenvolvido por Andhy Leal</footer>
+</body>
+
 </html>
