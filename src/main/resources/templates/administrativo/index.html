@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tabela de Decretos</title>
+	<link rel="stylesheet" href="index.css">
+	<!-- Restante do seu código head -->
+</head>
+
+<body>
+
+	<h2>Acervo de Decretos</h2>
+<form th:action="@{/administrativo}" method="get">
+	<select name="filtro" id="name">
+		<option>Buscar decreto por</option>
+		<option value="ano">Ano</option>
+		<option value="numero">Número</option>
+		<option value="ementa">Texto da ementa</option>
+		<option value="etiqueta">Etiqueta</option>
+		<option value="status">Status</option>
+		<option value="palavras_chave">Palavras-chave</option>
+	</select>
+	<input type="text" name="termoPesquisa" placeholder="Digitar pesquisa">
+
+	<button type="submit">Pesquisar</button>
+</form>
+	<table>
+		<thead>
+			<tr>
+				<th>Ano</th>
+				<th>Data</th>
+				<th>Número</th>
+				<th>Ementa</th>
+				<th>Etiqueta</th>
+				<th>Status</th>
+				<th>Palavras-Chave</th>
+				<th>PDF</th>
+				<th>Word</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- Utilize Thymeleaf para iterar sobre a lista de decretos -->
+			<tr th:each="decreto : ${decretos}">
+				<td th:text="${decreto.ano}"></td>
+				<td th:text="${#dates.format(decreto.data, 'dd/MM/yyyy')}"></td>
+				<td th:text="${decreto.numero}"></td>
+				<td th:text="${decreto.ementa}"></td>
+				<td th:text="${decreto.etiqueta}"></td>
+				<td th:text="${decreto.status}"></td>
+				<td th:text="${decreto.palavrasChave}"></td>
+				<td th:text="${decreto.caminhoPDF}"></td>
+				<td th:text="${decreto.caminhoWord}"></td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+
+</html>
