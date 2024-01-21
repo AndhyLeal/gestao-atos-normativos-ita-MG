@@ -60,4 +60,9 @@ public class DecretoController {
 
 		return modelAndView;
 	}
+
+	@GetMapping("/home")
+	public String home() {
+		return "home/home";
+	}
 }
