@@ -12,22 +12,23 @@
 <body>
 
 	<h2>Acervo de Decretos</h2>
-<form th:action="@{/administrativo}" method="get">
-	<select name="filtro" id="name">
-		<option>Buscar decreto por</option>
-		<option value="ano">Ano</option>
-		<option value="numero">Número</option>
-		<option value="ementa">Texto da ementa</option>
-		<option value="etiqueta">Etiqueta</option>
-		<option>Value</option>
-		<option value="status">Status</option>
-		<option value="palavras_chave">Palavras-chave</option>
-	</select>
-	<input type="text" name="termoPesquisa" placeholder="Digitar pesquisa">
+	<form th:action="@{/decretos}" method="get">
+		<select name="filtro" id="name">
+			<option>Buscar decreto por</option>
+			<option value="ano">Ano</option>
+			<option value="numero">Número</option>
+			<option value="ementa">Texto da ementa</option>
+			<option value="etiqueta">Etiqueta</option>
+			<option value="status">Status</option>
+			<option value="palavras_chave">Palavras-chave</option>
+		</select>
+		<input type="text" name="termoPesquisa" placeholder="Digitar pesquisa">
 
-	<button type="submit">Pesquisar</button>
-</form>
+		<button type="submit" class="page_button">Pesquisar</button>
+		<button type="submit" class="page_button">Limpar</button>
+	</form>
 	<table>
+		
 		<thead>
 			<tr>
 				<th>Ano</th>
@@ -42,7 +43,6 @@
 			</tr>
 		</thead>
 		<tbody>
-			<!-- Utilize Thymeleaf para iterar sobre a lista de decretos -->
 			<tr th:each="decreto : ${decretos}">
 				<td th:text="${decreto.ano}"></td>
 				<td th:text="${#dates.format(decreto.data, 'dd/MM/yyyy')}"></td>
@@ -51,12 +51,18 @@
 				<td th:text="${decreto.etiqueta}"></td>
 				<td th:text="${decreto.status}"></td>
 				<td th:text="${decreto.palavrasChave}"></td>
-				<td th:text="${decreto.caminhoPDF}"></td>
-				<td th:text="${decreto.caminhoWord}"></td>
+				<td>
+					<a th:href="${decreto.caminhoPDF}" target="_blank">Ver</a>
+				</td>
+				
+				<td>
+					<a href="${decreto.caminhoWord}" target="_blank">Ver</a>
+				</td>
+
 			</tr>
 		</tbody>
 	</table>
-
+<footer>© 2024 Desenvolvido por Andhy Leal</footer>
 </body>
 
 </html>

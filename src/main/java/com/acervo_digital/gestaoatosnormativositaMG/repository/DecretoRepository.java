@@ -10,7 +10,15 @@ import com.acervo_digital.gestaoatosnormativositaMG.entidades.Decreto;
 @Repository
 public interface DecretoRepository extends JpaRepository<Decreto, Long> {
 
-	 List<Decreto> findByAno(Integer ano);
-	    List<Decreto> findByNumero(String numero);
-	    List<Decreto> findByEmentaContaining(String ementa);
+    List<Decreto> findByAno(Integer ano);
+
+    List<Decreto> findByNumeroIgnoreCase(String numero);
+
+    List<Decreto> findByEmentaContainingIgnoreCase(String ementa);
+
+    List<Decreto> findByEtiquetaContainingIgnoreCase(String etiqueta);
+
+    List<Decreto> findByPalavrasChaveContainingIgnoreCase(String palavrasChave);    
+
+    List<Decreto> findByStatusIgnoreCase(String status);
 }

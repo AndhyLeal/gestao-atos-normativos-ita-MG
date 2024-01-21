@@ -19,7 +19,7 @@ public class DecretoController {
 	@Autowired
 	private DecretoRepository decretoRepository;
 
-	@GetMapping("/administrativo")
+	@GetMapping("/decretos")
 	public ModelAndView listarDecretos(@RequestParam(name = "filtro", required = false) String filtro,
 			@RequestParam(name = "termoPesquisa", required = false) String termoPesquisa) {
 		System.out.println("Filtro: " + filtro);
@@ -33,10 +33,19 @@ public class DecretoController {
 				listaDecretos = decretoRepository.findByAno(Integer.parseInt(termoPesquisa));
 				break;
 			case "numero":
-				listaDecretos = decretoRepository.findByNumero(termoPesquisa);
+				listaDecretos = decretoRepository.findByNumeroIgnoreCase(termoPesquisa);
 				break;
 			case "ementa":
-				listaDecretos = decretoRepository.findByEmentaContaining(termoPesquisa);
+				listaDecretos = decretoRepository.findByEmentaContainingIgnoreCase(termoPesquisa);
+				break;
+			case "palavras_chave":
+				listaDecretos = decretoRepository.findByPalavrasChaveContainingIgnoreCase(termoPesquisa);
+				break;
+			case "etiqueta":
+				listaDecretos = decretoRepository.findByEtiquetaContainingIgnoreCase(termoPesquisa);
+				break;
+			case "status":
+				listaDecretos = decretoRepository.findByStatusIgnoreCase(termoPesquisa);
 				break;
 			default:
 				listaDecretos = decretoRepository.findAll();
@@ -46,7 +55,7 @@ public class DecretoController {
 			listaDecretos = decretoRepository.findAll();
 		}
 
-		ModelAndView modelAndView = new ModelAndView("/administrativo/index");
+		ModelAndView modelAndView = new ModelAndView("/decretos/index");
 		modelAndView.addObject("decretos", listaDecretos);
 
 		return modelAndView;
