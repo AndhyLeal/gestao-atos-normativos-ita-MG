@@ -30,11 +30,10 @@ footer {
 	margin: 0 auto;
 }
 
-main {
-	display: flex;
-	justify-content: space-around;
-	flex-wrap: wrap;
-	padding: 20px;
+#brasao {
+	max-width: 100px;
+	/* Ajuste conforme necessário */
+	display: block;
 }
 
 .opcao {
